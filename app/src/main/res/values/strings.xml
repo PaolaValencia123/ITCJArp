@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="title_activity_second">Home</string>
+    <string name="textLogin">Login</string>
+    <string name="textUsuario">Usuario</string>
+    <string name="textContrasenia">Contraseña</string>
+    <string name="txtBienvenido">¡Bienvenido!</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="title_activity_registro">Registro</string>
+    <string name="textRegistro">Registro de Usuario</string>
+    <string name="textoNombre">Nombre completo</string>
+    <string name="textoCorreo">Correo electrónico</string>
+    <string name="textPassword">Contraseña</string>
+    <string name="confirmPassword">Confirmar contraseña</string>
+    <string name="textRegistrar">Registrar</string>
+    <string name="textPregunta">¿No tienes una cuenta?</string>
+    <string name="textRegistrate">Registrate aquí</string>
+
+</resources>

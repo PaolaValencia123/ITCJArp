@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="sizeTitulo">50sp</dimen>
+    <dimen name="sizeDatos">20sp</dimen>
+    <dimen name="marginSuperior">35dp</dimen>
+    <dimen name="sizePregunta">16sp</dimen>
+    <dimen name="margenSupPregunta">65dp</dimen>
+    <dimen name="margenIzqPreg">7dp</dimen>
+    <dimen name="margenesCajas">30dp</dimen>
+</resources>
