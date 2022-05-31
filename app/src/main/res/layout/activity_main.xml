@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal|center_vertical"
                 android:onClick="nuevaPagina"
-                android:text="Te amo ♥"
+                android:text="@string/textLogin"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/sizeTitulo"/>
         </LinearLayout>
@@ -57,10 +57,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/textoCorreo"
-                    android:text="ElAmorDeMiVida@TeAmo.com"
                     android:textSize="@dimen/sizeDatos"
-                    android:inputType="textEmailAddress"
                     android:id="@+id/txtCoreoElect"
+                    android:inputType="textEmailAddress"
                     android:layout_marginHorizontal="@dimen/margenesCajas">
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -69,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,7 +112,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/textRegistrate"
                     android:textSize="@dimen/sizePregunta"
-                    android:
                     android:layout_marginTop="@dimen/margenSupPregunta"
                     android:layout_marginLeft="@dimen/margenIzqPreg"
                     android:textColor="@color/colorPrimaryDark"

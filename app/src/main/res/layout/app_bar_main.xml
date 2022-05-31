@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Second">
+    tools:context=".MenuSlideActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,29 +20,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <include layout="@layout/content_main" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/txtBienvenido"
-            android:gravity="center"
-            android:textSize="@dimen/sizeTitulo"/>
-
-        <Button
-            android:id="@+id/btnIniciar"
-            android:layout_width="185dp"
-            android:layout_height="wrap_content"
-            android:text="Iniciar"
-            android:onClick="mover"/>
-
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

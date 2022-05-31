@@ -37,34 +37,25 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    public void nuevaPagina(View view){
-        Uri abrirPagWeb = Uri.parse("https://www.facebook.com/");
-        Intent webIntent = new Intent(Intent.ACTION_VIEW, abrirPagWeb);
-        startActivity(webIntent);
+    public void nuevaPagina(View view) {
+        startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
     }
 
-    public void enviarDatos(View view){
+    public void enviarDatos(View view) {
         EditText edtCorreoE = findViewById(R.id.txtCoreoElect);
         EditText edtContrasenia = findViewById(R.id.txtContrasenia);
 
         String user = edtCorreoE.getText().toString();
         String pass = edtContrasenia.getText().toString();
 
-        if(user.isEmpty() || pass.isEmpty()){
+        if (user.isEmpty() || pass.isEmpty()) {
             Toast.makeText(this, "Algún campo está vacío", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            login();
+        } else {
+            login(user, pass);
         }
     }
 
-    public void login(){
-        EditText edtCorreoE = findViewById(R.id.txtCoreoElect);
-        EditText edtContrasenia = findViewById(R.id.txtContrasenia);
-
-        String user = edtCorreoE.getText().toString();
-        String pass = edtContrasenia.getText().toString();
-
+    public void login(String user, String pass) {
         mAuth.signInWithEmailAndPassword(user, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -79,13 +70,11 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void crearUsuario(View view){
+    public void crearUsuario(View view) {
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
 
     }
-
-
 
 
     @Override

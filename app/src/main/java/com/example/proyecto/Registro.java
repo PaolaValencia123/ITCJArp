@@ -25,6 +25,11 @@ public class Registro extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference mdb;
 
+    private EditText edtNombre;
+    private EditText edtEmail;
+    private EditText edtPass;
+    private EditText edtConfirmPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +39,11 @@ public class Registro extends AppCompatActivity {
 
     }
 
-    public void enviarDatosRegistro(View view){
-        final EditText edtNombre = findViewById(R.id.txtName);
-        final EditText edtEmail = findViewById(R.id.txtEmail);
-        final EditText edtPass = findViewById(R.id.txtPass);
-        final EditText edtConfirmPass = findViewById(R.id.txtConfirmPass);
+    public void enviarDatosRegistro(View view) {
+        edtNombre = findViewById(R.id.txtName);
+        edtEmail = findViewById(R.id.txtEmail);
+        edtPass = findViewById(R.id.txtPass);
+        edtConfirmPass = findViewById(R.id.txtConfirmPass);
 
         final String nombre = edtNombre.getText().toString();
         final String correo = edtEmail.getText().toString();
@@ -48,41 +53,46 @@ public class Registro extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mdb = FirebaseDatabase.getInstance().getReference();
 
-        if(nombre.isEmpty() || correo.isEmpty() || passw.isEmpty() || confPassw.isEmpty()){
+        if (nombre.isEmpty() || correo.isEmpty() || passw.isEmpty() || confPassw.isEmpty()) {
             Toast.makeText(this, "Algún campo está vacío", Toast.LENGTH_SHORT).show();
-        }
-        else if(!passw.equals(confPassw)){
+        } else if (!passw.equals(confPassw)) {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-        }
-        else if(passw.length()>=10 && confPassw.length()>=10){
-            mAuth.createUserWithEmailAndPassword(correo,passw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        } else if (passw.length() >= 10) {
+            mAuth.createUserWithEmailAndPassword(correo, passw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Map<String, Object> map = new HashMap<>();
-                        map.put("nombre",nombre);
-                        map.put("correo",correo);
-                        map.put("contraseña",passw);
+                        map.put("nombre", nombre);
+                        map.put("correo", correo);
+                        map.put("contraseña", passw);
 
                         String id = mAuth.getCurrentUser().getUid();
 
-                        mdb.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>(){
+                        mdb.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
+                                if (task.isSuccessful()) {
                                     Toast.makeText(Registro.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
-                                    edtNombre.setText("");
-                                    edtEmail.setText("");
-                                    edtPass.setText("");
-                                    edtConfirmPass.setText("");
+                                    cleanInputs();
+                                    String id = mAuth.getCurrentUser().getUid();
                                 }
                             }
-                    });
-                }else{
+                        });
+                    } else {
                         Toast.makeText(Registro.this, "La contraseña debe tener 10 o más caracteres", Toast.LENGTH_SHORT).show();
                     }
-            }
-        });
+                }
+            });
+        }
     }
-}
+
+    public void cleanInputs() {
+        edtNombre.setText("");
+        edtEmail.setText("");
+        edtPass.setText("");
+        edtConfirmPass.setText("");
+    }
+
+
 }
