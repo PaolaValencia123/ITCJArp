@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "50504799708",
-    "firebase_url": "https://proyecto1-70738.firebaseio.com",
-    "project_id": "proyecto1-70738",
-    "storage_bucket": "proyecto1-70738.appspot.com"
+    "project_number": "88099914961",
+    "project_id": "arp-db",
+    "storage_bucket": "arp-db.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:50504799708:android:2fcc0fb7f51202a39e2b19",
+        "mobilesdk_app_id": "1:88099914961:android:1272e966408c10af5231f0",
         "android_client_info": {
           "package_name": "com.example.proyecto"
         }
       },
       "oauth_client": [
         {
-          "client_id": "50504799708-d4tc0187mhu95gkq8cki1ip1pcf5pt3o.apps.googleusercontent.com",
+          "client_id": "88099914961-5u6elcki2bfh83p5fuo28lq367jgas8l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDASQTPgUAjM5xNNWgNgoPYrIqqi8al4KU"
+          "current_key": "AIzaSyDOGtvvGlOOIx4nl6kRGiLMEVt5xqSVdkQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "50504799708-d4tc0187mhu95gkq8cki1ip1pcf5pt3o.apps.googleusercontent.com",
+              "client_id": "88099914961-5u6elcki2bfh83p5fuo28lq367jgas8l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

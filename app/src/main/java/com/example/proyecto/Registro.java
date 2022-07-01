@@ -36,7 +36,6 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
 
     public void enviarDatosRegistro(View view) {
