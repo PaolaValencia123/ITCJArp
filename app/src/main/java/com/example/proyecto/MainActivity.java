@@ -1,5 +1,7 @@
 package com.example.proyecto;
 
+import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,6 +28,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference rootReference;
+    EditText edtCorreoE;
+    EditText edtContrasenia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enviarDatos(View view) {
-        EditText edtCorreoE = findViewById(R.id.txtCoreoElect);
-        EditText edtContrasenia = findViewById(R.id.txtContrasenia);
+        edtCorreoE = findViewById(R.id.txtCoreoElect);
+        edtContrasenia = findViewById(R.id.txtContrasenia);
 
         String user = edtCorreoE.getText().toString();
         String pass = edtContrasenia.getText().toString();
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, Second.class));
                             finish();
                         } else {
-                            Toast.makeText(MainActivity.this, "Comprueba tu información", Toast.LENGTH_SHORT).show();
+                            getErrorMessage(Registro.getInstance(), MainActivity.this,2,((FirebaseAuthException) task.getException()).getErrorCode(), edtCorreoE, edtContrasenia);
                         }
                     }
                 });
@@ -74,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
 
+    }
+
+    public static MainActivity getInstance(){
+        return new MainActivity();
     }
 
 
