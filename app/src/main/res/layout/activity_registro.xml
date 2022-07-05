@@ -75,13 +75,25 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/textoCorreo"
                     android:textSize="@dimen/sizeDatos"
+                    android:inputType="textEmailAddress"
                     android:layout_marginLeft="@dimen/margenesCajas"
                     android:layout_marginRight="@dimen/margenesCajas"
                     android:id="@+id/txtEmail"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
+            <Spinner
+                android:id="@+id/SpnTipo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorBlack"
+                android:dropDownSelector="@color/colorBlack"
+                style="@style/mySpinnerItemStyle2"
+                android:theme="@style/mySpinnerItemStyle"
+                />
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

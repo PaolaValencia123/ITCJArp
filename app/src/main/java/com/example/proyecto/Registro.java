@@ -2,6 +2,7 @@ package com.example.proyecto;
 
 import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,7 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
@@ -32,6 +37,7 @@ public class Registro extends AppCompatActivity {
     private EditText edtEmail;
     private EditText edtPass;
     private EditText edtConfirmPass;
+    private Spinner spnTipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,22 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Spinner
+        spnTipo = findViewById(R.id.SpnTipo);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipo, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnTipo.setAdapter(adapter);
+        spnTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK); /* if you want your item to be white */
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     public void enviarDatosRegistro(View view) {
@@ -82,7 +104,7 @@ public class Registro extends AppCompatActivity {
                             }
                         });
                     } else {
-                        getErrorMessage(Registro.this, MainActivity.getInstance(),1,((FirebaseAuthException) task.getException()).getErrorCode(), edtEmail, edtPass);
+                        getErrorMessage(Registro.this, MainActivity.getInstance(), 1, ((FirebaseAuthException) task.getException()).getErrorCode(), edtEmail, edtPass);
                     }
                 }
             });
@@ -92,15 +114,14 @@ public class Registro extends AppCompatActivity {
     }
 
 
-    public static Registro getInstance(){
+    public static Registro getInstance() {
         return new Registro();
     }
-        public void cleanInputs () {
-            edtNombre.setText("");
-            edtEmail.setText("");
-            edtPass.setText("");
-            edtConfirmPass.setText("");
-        }
 
-
+    public void cleanInputs() {
+        edtNombre.setText("");
+        edtEmail.setText("");
+        edtPass.setText("");
+        edtConfirmPass.setText("");
     }
+}
