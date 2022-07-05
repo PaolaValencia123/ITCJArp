@@ -1,7 +1,5 @@
 package com.example.proyecto;
 
-import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
-
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +20,8 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
 
 public class Registro extends AppCompatActivity {
 
