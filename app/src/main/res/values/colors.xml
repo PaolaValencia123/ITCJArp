@@ -7,4 +7,6 @@
     <color name="colorBlack">#141414</color>
     <color name="colorGreen">#4CAF50</color>
     <color name="textoNegro">#090808</color>
+    <color name="colorBtnRestablecer">#F39C12</color>
+
 </resources>
