@@ -17,6 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import org.osmdroid.config.Configuration;
+
 public class MenuSlideActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -35,6 +37,7 @@ public class MenuSlideActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
