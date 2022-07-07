@@ -47,6 +47,12 @@
     <string name="menu_gallery">Mapa</string>
     <string name="menu_slideshow">Reportes</string>
 
+    <string-array name="tipo">
+        <item>Estudiante</item>
+        <item>Docente</item>
+        <item>Externo</item>
+    </string-array>
+
     <!-- Strings used for Fragment Home -->
     <string name="titleMapa">Mapa de los contenedores</string>
 </resources>
