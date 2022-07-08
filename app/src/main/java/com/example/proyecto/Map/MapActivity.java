@@ -1,9 +1,12 @@
 package com.example.proyecto.Map;
 
+import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,8 +15,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 
+import com.example.proyecto.MainActivity;
+import com.example.proyecto.MenuSlideActivity;
 import com.example.proyecto.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -147,6 +154,16 @@ public class MapActivity extends AppCompatActivity {
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         if (mapView != null) {
             mapView.onPause();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            sendToLogin(MapActivity.this);
         }
     }
 }

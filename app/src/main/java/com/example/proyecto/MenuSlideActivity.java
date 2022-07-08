@@ -1,5 +1,8 @@
 package com.example.proyecto;
 
+import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,6 +11,8 @@ import android.view.Menu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -50,6 +55,17 @@ public class MenuSlideActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            sendToLogin(MenuSlideActivity.this);
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
