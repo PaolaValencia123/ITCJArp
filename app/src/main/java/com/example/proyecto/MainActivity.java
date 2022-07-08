@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.proyecto.Map.MapActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,6 +26,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.osmdroid.config.Configuration;
+
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference rootReference;
@@ -40,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         rootReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
     }
 
     public void nuevaPagina(View view) {
-        startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
+        startActivity(new Intent(MainActivity.this, MapActivity.class));
     }
 
     public void enviarDatos(View view) {
