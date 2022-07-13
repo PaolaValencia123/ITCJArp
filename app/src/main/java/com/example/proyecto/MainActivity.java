@@ -28,6 +28,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.osmdroid.config.Configuration;
+
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference rootReference;
@@ -42,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         rootReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
 
 
         txvRecuperarContrasenia = findViewById(R.id.textViewSendToResetPassword);
@@ -57,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nuevaPagina(View view) {
-        startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
+        startActivity(new Intent(MainActivity.this, MapActivity.class));
     }
-
 
     public void enviarDatos(View view) {
         edtCorreoE = findViewById(R.id.txtCoreoElect);
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public void crearUsuario(View view) {
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
+
     }
 
     public static MainActivity getInstance(){

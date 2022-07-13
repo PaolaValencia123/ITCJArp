@@ -1,10 +1,14 @@
 package com.example.proyecto;
 
 import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
+import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.example.proyecto.Map.MapActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -102,6 +106,7 @@ public class Registro extends AppCompatActivity {
                                     Toast.makeText(Registro.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
                                     cleanInputs();
                                     String id = mAuth.getCurrentUser().getUid();
+                                    sendToLogin(Registro.this);
                                 }
                             }
                         });
@@ -114,6 +119,8 @@ public class Registro extends AppCompatActivity {
             Toast.makeText(Registro.this, "La contraseña debe tener 10 o más caracteres", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
 
     public static Registro getInstance() {

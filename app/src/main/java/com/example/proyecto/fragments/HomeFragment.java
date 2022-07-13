@@ -1,5 +1,6 @@
 package com.example.proyecto.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +13,11 @@ import android.view.ViewGroup;
 import com.example.proyecto.BuildConfig;
 import com.example.proyecto.R;
 
+import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.BoundingBox;
+import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
 public class HomeFragment extends Fragment {
@@ -28,10 +33,37 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        mapView = getView().findViewById(R.id.mapView);
+
         return inflater.inflate(R.layout.fragment_home, container, false);
 
 
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        // put your own code here
+        mapView = getActivity().findViewById(R.id.mapView);
+
+        double[] center = {31.720714, -106.422508};
+        System.out.println("Prueba 1");
+        // Applying parameters
+        mapView.post(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        double[] center = {31.720714, -106.422508};
+
+                        mapView.setTileSource(TileSourceFactory.MAPNIK);
+                        mapView.setMultiTouchControls(true);
+                        IMapController mapController = mapView.getController();
+                        mapController.setZoom(16.0);
+
+                        GeoPoint  currentLocation = new GeoPoint(center[0],center[1]);
+                        mapController.setCenter(currentLocation);
+                        System.out.println("Prueba");
+                    }
+                }
+        );
     }
 
     @Override

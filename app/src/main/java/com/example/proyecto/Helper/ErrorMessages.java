@@ -1,5 +1,7 @@
 package com.example.proyecto.Helper;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -8,6 +10,12 @@ import com.example.proyecto.Registro;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class ErrorMessages {
+
+    public static void sendToLogin(Activity from) {
+        Intent loginIntent = new Intent(from, MainActivity.class);
+        from.startActivity(loginIntent);
+        from.finish();
+    }
 
     public static void getErrorMessage(Registro reg, MainActivity main, Integer selection, String errorCode, EditText edtEmail, EditText edtPass) {
         switch (errorCode) {
