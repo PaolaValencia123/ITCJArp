@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intentResetPass = new Intent(this, ResetPasswordActivity.class);
         startActivity(intentResetPass);
 
+
     }
 
     public void crearUsuario(View view) {
