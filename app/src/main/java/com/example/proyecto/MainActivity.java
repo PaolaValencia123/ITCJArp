@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
@@ -18,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.KeyEvent;
 import android.view.View;
 
 import android.view.Menu;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference rootReference;
     EditText edtCorreoE;
     EditText edtContrasenia;
+    MaterialTextView txvRecuperarContrasenia;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +42,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         rootReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+
+        txvRecuperarContrasenia = findViewById(R.id.textViewSendToResetPassword);
+
+        txvRecuperarContrasenia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textViewNewPassword();
+            }
+        });
     }
 
     public void nuevaPagina(View view) {
         startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
     }
+
 
     public void enviarDatos(View view) {
         edtCorreoE = findViewById(R.id.txtCoreoElect);
@@ -75,10 +90,14 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    public void textViewNewPassword(){
+        Intent intentResetPass = new Intent(this, ResetPasswordActivity.class);
+        startActivity(intentResetPass);
+    }
+
     public void crearUsuario(View view) {
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
-
     }
 
     public static MainActivity getInstance(){

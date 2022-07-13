@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.example.proyecto.MainActivity;
 import com.example.proyecto.Registro;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class ErrorMessages {
 
@@ -29,9 +30,9 @@ public class ErrorMessages {
                 break;
 
             case "ERROR_WRONG_PASSWORD":
-                edtEmail.setError("La contraseña es incorrecta.");
-                edtEmail.requestFocus();
-                edtEmail.setText("");
+                edtPass.setError("La contraseña es incorrecta.");
+                edtPass.requestFocus();
+                edtPass.selectAll();
                 break;
 
             case "ERROR_USER_MISMATCH":

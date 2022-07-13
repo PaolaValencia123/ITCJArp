@@ -56,7 +56,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/textoCorreo"
+                    android:hint="@string/textCorreo"
                     android:textSize="@dimen/sizeDatos"
                     android:id="@+id/txtCoreoElect"
                     android:inputType="textEmailAddress"
@@ -67,7 +67,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -78,6 +79,18 @@
                     android:id="@+id/txtContrasenia"
                     android:layout_marginHorizontal="@dimen/margenesCajas">
                 </com.google.android.material.textfield.TextInputEditText>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margenIzqPregOlvidaste"
+                    android:layout_marginTop="@dimen/margenSupPregOlvidaste"
+                    android:text="@string/textOlvidaste"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizePregunta"
+                    android:id="@+id/textViewSendToResetPassword"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
 
