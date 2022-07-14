@@ -2,7 +2,6 @@ package com.example.proyecto.Helper;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -36,16 +35,14 @@ public class ErrorMessages {
                 break;
 
             case "ERROR_INVALID_EMAIL":
-                Toast.makeText(selection == 1 ? reg : main, "La dirección de correo electrónico está mal formateada.", Toast.LENGTH_LONG).show();
-                edtEmail.setError("La dirección de correo electrónico está mal formateada.");
+                edtEmail.setError("La dirección de correo electrónico no es válida.");
                 edtEmail.requestFocus();
                 break;
 
             case "ERROR_WRONG_PASSWORD":
-                Toast.makeText(selection == 1 ? reg : main, "La contraseña no es válida o el usuario no tiene contraseña.", Toast.LENGTH_LONG).show();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    Arrays.stream(textInputLayout).forEach(item -> item.setEndIconVisible(false));
-                }
+                edtPass.setError("La contraseña es incorrecta.");
+                edtPass.requestFocus();
+                edtPass.selectAll();
                 edtPass.requestFocus();
                 break;
 
@@ -76,6 +73,8 @@ public class ErrorMessages {
                 break;
 
             case "ERROR_USER_TOKEN_EXPIRED":
+
+            case "ERROR_INVALID_USER_TOKEN":
                 Toast.makeText(selection == 1 ? reg : main, "La credencial del usuario ya no es válida. El usuario debe iniciar sesión de nuevo.", Toast.LENGTH_LONG).show();
                 break;
 
@@ -83,16 +82,12 @@ public class ErrorMessages {
                 Toast.makeText(selection == 1 ? reg : main, "No hay ningún registro de usuario correspondiente a este identificador. El usuario puede haber sido eliminado.", Toast.LENGTH_LONG).show();
                 break;
 
-            case "ERROR_INVALID_USER_TOKEN":
-                Toast.makeText(selection == 1 ? reg : main, "La credencial del usuario ya no es válida. El usuario debe iniciar sesión de nuevo.", Toast.LENGTH_LONG).show();
-                break;
 
             case "ERROR_OPERATION_NOT_ALLOWED":
                 Toast.makeText(selection == 1 ? reg : main, "Esta operación no está permitida. Debe habilitar este servicio en la consola.", Toast.LENGTH_LONG).show();
                 break;
 
             case "ERROR_WEAK_PASSWORD":
-                Toast.makeText(selection == 1 ? reg : main, "La contraseña dada no es válida.", Toast.LENGTH_LONG).show();
                 edtEmail.setError("La contraseña no es válida, debe tener al menos 6 caracteres");
                 edtEmail.requestFocus();
                 break;

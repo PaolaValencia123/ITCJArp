@@ -11,6 +11,8 @@ import com.example.proyecto.Map.MapActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
@@ -22,10 +24,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 
 import android.view.Menu;
@@ -40,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference rootReference;
     EditText edtCorreoE;
     EditText edtContrasenia;
-    TextInputLayout g;
+    MaterialTextView txvRecuperarContrasenia;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +51,14 @@ public class MainActivity extends AppCompatActivity {
         rootReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
-        g = findViewById(R.id.tilSignUpPassword);
-        edtContrasenia = findViewById(R.id.txtContrasenia);
-        edtContrasenia.addTextChangedListener(new TextWatcher() {
+
+
+        txvRecuperarContrasenia = findViewById(R.id.textViewSendToResetPassword);
+
+        txvRecuperarContrasenia.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                g.setEndIconVisible(true);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onClick(View view) {
+                textViewNewPassword();
             }
         });
     }
@@ -86,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void enviarDatos(View view) {
         edtCorreoE = findViewById(R.id.txtCoreoElect);
-
+        edtContrasenia = findViewById(R.id.txtContrasenia);
 
         String user = edtCorreoE.getText().toString();
         String pass = edtContrasenia.getText().toString();
@@ -99,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(String user, String pass) {
-
-
         mAuth.signInWithEmailAndPassword(user, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -109,11 +98,15 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, Second.class));
                             finish();
                         } else {
-
-                            getErrorMessage(Registro.getInstance(), MainActivity.this,2,((FirebaseAuthException) task.getException()).getErrorCode(), edtCorreoE, edtContrasenia, g);
+                            getErrorMessage(Registro.getInstance(), MainActivity.this,2,((FirebaseAuthException) task.getException()).getErrorCode(), edtCorreoE, edtContrasenia);
                         }
                     }
                 });
+    }
+
+    public void textViewNewPassword(){
+        Intent intentResetPass = new Intent(this, ResetPasswordActivity.class);
+        startActivity(intentResetPass);
     }
 
     public void crearUsuario(View view) {

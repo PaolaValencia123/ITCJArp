@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_recycle_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ResetPasswordActivity"></activity>
         <activity
             android:name=".Map.MapActivity"
             android:exported="false" />

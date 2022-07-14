@@ -12,4 +12,13 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
+
+    <!-- Dimens - Login -->
+    <dimen name="margenIzqPregOlvidaste">180dp</dimen>
+    <dimen name="margenSupPregOlvidaste">8dp</dimen>
+
+    <!-- Dimens - Reset Password -->
+    <dimen name="marginGlobalActivity">22dp</dimen>
 </resources>
+
+

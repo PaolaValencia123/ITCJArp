@@ -32,6 +32,8 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
+
 public class Registro extends AppCompatActivity {
 
     FirebaseAuth mAuth;

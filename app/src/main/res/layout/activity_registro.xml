@@ -40,7 +40,8 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="@string/textRegistro"
-                android:textSize="@dimen/sizeDatos"/>
+                android:textSize="@dimen/sizeDatos"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -58,7 +59,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/textoNombre"
+                    android:hint="@string/textNombre"
                     android:textSize="@dimen/sizeDatos"
                     android:layout_marginLeft="@dimen/margenesCajas"
                     android:layout_marginRight="@dimen/margenesCajas"
@@ -73,7 +74,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/textoCorreo"
+                    android:hint="@string/textCorreo"
                     android:textSize="@dimen/sizeDatos"
                     android:inputType="textEmailAddress"
                     android:layout_marginLeft="@dimen/margenesCajas"
