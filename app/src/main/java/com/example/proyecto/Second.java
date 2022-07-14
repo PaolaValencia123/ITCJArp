@@ -24,7 +24,7 @@ public class Second extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    public void mover2(){
+    public void mover23(){
         Intent intentAbrirPagina = new Intent(getApplicationContext(),MenuSlideActivity.class);
         startActivity(intentAbrirPagina);
     }
