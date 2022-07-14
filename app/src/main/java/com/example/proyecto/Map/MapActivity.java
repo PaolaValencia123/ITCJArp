@@ -4,7 +4,12 @@ import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,6 +24,7 @@ import com.example.proyecto.MainActivity;
 import com.example.proyecto.MenuSlideActivity;
 import com.example.proyecto.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -33,6 +39,9 @@ import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
 public class MapActivity extends AppCompatActivity {
     private MapView mapView = null;
     private FloatingActionButton info_clasification;
+
+    private AppBarConfiguration mAppBarConfiguration;
+    private DrawerLayout drawer;
 
     private GeoPoint[] ubicacionContenedores = {
             new GeoPoint(31.721588145085963, -106.42382084373638),
@@ -64,6 +73,18 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        drawer = findViewById(R.id.drawer_layout);
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                .setDrawerLayout(drawer)
+                .build();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
         mapView = findViewById(R.id.mapView);
 

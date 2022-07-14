@@ -41,7 +41,7 @@
             android:layout_width="185dp"
             android:layout_height="wrap_content"
             android:text="Iniciar"
-            android:onClick="mover"/>
+            android:onClick="logOut"/>
 
     </LinearLayout>
 

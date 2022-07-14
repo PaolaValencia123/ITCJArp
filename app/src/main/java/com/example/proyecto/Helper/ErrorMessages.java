@@ -2,11 +2,15 @@ package com.example.proyecto.Helper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyecto.MainActivity;
 import com.example.proyecto.Registro;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Arrays;
 
 public class ErrorMessages {
 
@@ -16,7 +20,7 @@ public class ErrorMessages {
         from.finish();
     }
 
-    public static void getErrorMessage(Registro reg, MainActivity main, Integer selection, String errorCode, EditText edtEmail, EditText edtPass) {
+    public static void getErrorMessage(Registro reg, MainActivity main, Integer selection, String errorCode, EditText edtEmail, EditText edtPass, TextInputLayout...textInputLayout) {
         switch (errorCode) {
 
             case "ERROR_INVALID_CUSTOM_TOKEN":
@@ -39,9 +43,10 @@ public class ErrorMessages {
 
             case "ERROR_WRONG_PASSWORD":
                 Toast.makeText(selection == 1 ? reg : main, "La contraseña no es válida o el usuario no tiene contraseña.", Toast.LENGTH_LONG).show();
-                edtEmail.setError("La contraseña es incorrecta.");
-                edtEmail.requestFocus();
-                edtEmail.setText("");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Arrays.stream(textInputLayout).forEach(item -> item.setEndIconVisible(false));
+                }
+                edtPass.requestFocus();
                 break;
 
             case "ERROR_USER_MISMATCH":

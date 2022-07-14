@@ -93,17 +93,18 @@ public class Registro extends AppCompatActivity {
                         Map<String, Object> map = new HashMap<>();
                         map.put("nombre", nombre);
                         map.put("correo", correo);
-                        map.put("contraseña", passw);
+                        map.put("tipo", spnTipo.getSelectedItem().toString());
+                        map.put("access", 1);
+
 
                         String id = mAuth.getCurrentUser().getUid();
-
+                        System.out.println("Id: " + id);
                         mdb.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Registro.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Registro.this, "Usuario registrado con éxito: " + id, Toast.LENGTH_SHORT).show();
                                     cleanInputs();
-                                    String id = mAuth.getCurrentUser().getUid();
                                     sendToLogin(Registro.this);
                                 }
                             }

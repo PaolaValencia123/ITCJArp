@@ -1,6 +1,7 @@
 package com.example.proyecto;
 
 import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
+import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,9 +10,11 @@ import android.os.Bundle;
 import com.example.proyecto.Map.MapActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,6 +22,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 
 import android.view.Menu;
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference rootReference;
     EditText edtCorreoE;
     EditText edtContrasenia;
+    TextInputLayout g;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +52,41 @@ public class MainActivity extends AppCompatActivity {
         rootReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
+        g = findViewById(R.id.tilSignUpPassword);
+        edtContrasenia = findViewById(R.id.txtContrasenia);
+        edtContrasenia.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                g.setEndIconVisible(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     public void nuevaPagina(View view) {
-        startActivity(new Intent(MainActivity.this, MapActivity.class));
+        startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser userF = mAuth.getCurrentUser();
+        if(userF != null)
+            startActivity(new Intent(MainActivity.this, Second.class));
     }
 
     public void enviarDatos(View view) {
         edtCorreoE = findViewById(R.id.txtCoreoElect);
-        edtContrasenia = findViewById(R.id.txtContrasenia);
+
 
         String user = edtCorreoE.getText().toString();
         String pass = edtContrasenia.getText().toString();
@@ -65,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(String user, String pass) {
+
+
         mAuth.signInWithEmailAndPassword(user, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -73,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, Second.class));
                             finish();
                         } else {
-                            getErrorMessage(Registro.getInstance(), MainActivity.this,2,((FirebaseAuthException) task.getException()).getErrorCode(), edtCorreoE, edtContrasenia);
+
+                            getErrorMessage(Registro.getInstance(), MainActivity.this,2,((FirebaseAuthException) task.getException()).getErrorCode(), edtCorreoE, edtContrasenia, g);
                         }
                     }
                 });
