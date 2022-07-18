@@ -46,6 +46,8 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Mapa</string>
     <string name="menu_slideshow">Reportes</string>
+    <string name="Status">Estatus:</string>
+    <string name="last_update">Última actualización:</string>
 
     <string-array name="tipo">
         <item>Estudiante</item>
@@ -60,6 +62,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="Historial">Historial</string>
 
     <string-array name="category">
         <item>Administrativo</item>
@@ -75,6 +78,23 @@
         <item>Centro de idiomas</item>
         <item>Posgrado</item>
         <item>Departamento de sistemas</item>
+    </string-array>
+
+    <string-array name="search">
+        <item>Ordernar por</item>
+
+        <item>Ubicación</item>
+
+        <item>Contenedor dañado</item>
+        <item>Contenedor lleno</item>
+        <item>Fecha</item>
+
+        <item>Dañado</item>
+        <item>Muy Dañado</item>
+        <item>Poco Dañado</item>
+
+        <item>Enviado</item>
+        <item>Sin atender</item>
     </string-array>
 
     <string-array name="estado">

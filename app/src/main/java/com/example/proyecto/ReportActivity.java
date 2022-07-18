@@ -190,12 +190,5 @@ public class ReportActivity extends AppCompatActivity {
         }
     }
 
-    public void sendEmail(View view){
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, "Email");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-        intent.putExtra(Intent.EXTRA_TEXT, "Texto");
-        startActivity(intent);
-    }
+
 }

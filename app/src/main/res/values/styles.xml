@@ -18,9 +18,13 @@
 
     <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
         <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:divider">@color/colorGreen</item>
+        <item name="android:dividerHeight">1dp</item>
     </style>
     <style name="mySpinnerItemStyle2" parent="Base.Widget.AppCompat.Spinner">
         <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:divider">#00ff00</item>
+        <item name="android:dividerHeight">1dp</item>
     </style>
     <style name="TextLabelBlack" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <!-- Hint color and label color in FALSE state -->

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.proyecto.Historial.HistorialActivity;
 import com.example.proyecto.Map.MapActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nuevaPagina(View view) {
-        startActivity(new Intent(MainActivity.this, ReportActivity.class));
+        startActivity(new Intent(MainActivity.this, HistorialActivity.class));
     }
 
     @Override
