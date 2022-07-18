@@ -55,4 +55,31 @@
 
     <!-- Strings used for Fragment Home -->
     <string name="titleMapa">Mapa de los contenedores</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_report">ReportActivity</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string-array name="category">
+        <item>Administrativo</item>
+        <item>Ciencias Básicas</item>
+        <item>Biblioteca</item>
+        <item>Desarrollo académico</item>
+        <item>Recursos financieros</item>
+        <item>Servicios Escolares</item>
+        <item>Educación a distancia</item>
+        <item>Guillot</item>
+        <item>Gestión y vinculación</item>
+        <item>Departamento de Ing. Industrial</item>
+        <item>Centro de idiomas</item>
+        <item>Posgrado</item>
+        <item>Departamento de sistemas</item>
+    </string-array>
+
+    <string-array name="estado">
+        <item>Muy poco dañado</item>
+        <item>Dañado</item>
+        <item>Muy dañado</item>
+    </string-array>
 </resources>

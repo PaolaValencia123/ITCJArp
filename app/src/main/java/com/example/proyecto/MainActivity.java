@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nuevaPagina(View view) {
-        startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
+        startActivity(new Intent(MainActivity.this, ReportActivity.class));
     }
 
     @Override
