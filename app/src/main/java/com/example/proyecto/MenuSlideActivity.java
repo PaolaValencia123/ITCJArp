@@ -4,22 +4,20 @@ import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+//import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.AdapterView;
 import android.widget.Toast;
-
 import com.example.proyecto.Map.MapActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+//import androidx.navigation.ui.*;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,8 +25,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import org.osmdroid.config.Configuration;
+
 
 public class MenuSlideActivity extends AppCompatActivity {
 

@@ -4,12 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.proyecto.MainActivity;
 import com.example.proyecto.Registro;
-import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.Arrays;
 
 public class ErrorMessages {
 
@@ -19,7 +16,7 @@ public class ErrorMessages {
         from.finish();
     }
 
-    public static void getErrorMessage(Registro reg, MainActivity main, Integer selection, String errorCode, EditText edtEmail, EditText edtPass, TextInputLayout...textInputLayout) {
+    public static void getErrorMessage(Registro reg, MainActivity main, Integer selection, String errorCode, EditText edtEmail, EditText edtPass) {
         switch (errorCode) {
 
             case "ERROR_INVALID_CUSTOM_TOKEN":
@@ -90,6 +87,8 @@ public class ErrorMessages {
             case "ERROR_WEAK_PASSWORD":
                 edtEmail.setError("La contraseña no es válida, debe tener al menos 6 caracteres");
                 edtEmail.requestFocus();
+                break;
+            default:
                 break;
         }
     }

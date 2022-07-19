@@ -64,7 +64,7 @@ public class MapActivity extends AppCompatActivity {
             "Edificio Guillot: 1",
             "Gestión y vinculación: 1",
             "Departamento de Ing. Industrial: 1",
-            "Centro de lenguas: 1",
+            "Centro de Idiomas: 1",
             "Posgrado: 1",
             "Departamento de sistemas: 2"
     };
@@ -74,17 +74,7 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        drawer = findViewById(R.id.drawer_layout);
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setDrawerLayout(drawer)
-                .build();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
 
         mapView = findViewById(R.id.mapView);
 
@@ -98,8 +88,8 @@ public class MapActivity extends AppCompatActivity {
         GeoPoint currentLocation = new GeoPoint(center[0], center[1]);
         mapController.setCenter(currentLocation);
 
-        Drawable d = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_recycle_background, null);
-        Drawable newMarker = this.getResources().getDrawable(R.drawable.ic_recycle_background);
+        Drawable d = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_recycle_blue_background, null);
+        Drawable newMarker = this.getResources().getDrawable(R.drawable.ic_recycle_blue_background);
         generateMarkers(mapView, resize(newMarker));
 
 
@@ -120,7 +110,7 @@ public class MapActivity extends AppCompatActivity {
 
         fragmentInfo editNameDialogFragment = fragmentInfo.newInstance();
 
-        editNameDialogFragment.show(fm, "Informacion");
+        editNameDialogFragment.show(fm, "Información");
 
     }
 
@@ -183,8 +173,8 @@ public class MapActivity extends AppCompatActivity {
         super.onStart();
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser == null) {
-            sendToLogin(MapActivity.this);
-        }
+        //if (currentUser == null) {
+        //    sendToLogin(MapActivity.this);
+        //}
     }
 }
