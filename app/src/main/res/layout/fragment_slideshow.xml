@@ -1,22 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LLA"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.slideshow.SlideshowFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:orientation="vertical"
+    android:weightSum="4.0">
 
-    <TextView
-        android:id="@+id/text_slideshow"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:contentDescription="Reciclaje"
+        android:src="@drawable/reciclaje"/>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+            android:id="@+id/LLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/TVReporte"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Reporte"
+                android:textColor="@color/colorBlack"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/ARSCategoria"
+                style="@style/mySpinnerItemStyle2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TVReporte"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="@color/colorBlack"
+                android:dropDownSelector="@color/colorGreen"
+                android:theme="@style/mySpinnerItemStyle" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_below="@+id/ARSCategoria"
+                android:checkedButton="@+id/radio_button_1"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/RBContenedorLleno"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Contenedor lleno"/>
+                <RadioButton
+                    android:id="@+id/RBContenedorDanado"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:layout_height="wrap_content"
+                    android:text="Contenedor dañado"/>
+            </RadioGroup>
+
+
+            <Spinner
+                android:id="@+id/ARSDano"
+                style="@style/mySpinnerItemStyle2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radioGroup"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="@color/colorBlack"
+                android:dropDownSelector="@color/colorGreen"
+                android:theme="@style/mySpinnerItemStyle" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TILSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabelBlack"
+                android:layout_below="@+id/ARSDano"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ARTEComentarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:hint="Comentarios"
+                    android:inputType="text"
+                    android:textColor="@color/colorBlack"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/Photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TILSize"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Fotos"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+            <ImageView
+                android:id="@+id/ARUploadPhoto2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/Photos"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:contentDescription="Upload Photo"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_photo_camera_green"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ARMbCancelar"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ARUploadPhoto2"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:padding="15dp"
+                android:text="Cancelar"
+                android:textColor="@color/colorGreen"
+                android:textSize="15sp"
+                android:theme="@style/XAppTheme1"
+                app:rippleColor="@color/colorWhite" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ARMbGuardar"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ARUploadPhoto2"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_toEndOf="@+id/ARMbCancelar"
+                android:backgroundTint="@color/colorGreen"
+                android:padding="15dp"
+                android:text="Enviar"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:theme="@style/XAppTheme1"
+                app:rippleColor="@color/colorBtnRestablecer" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

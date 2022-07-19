@@ -7,20 +7,22 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.proyecto.Historial.HistorialActivity;
-//import com.example.proyecto.Map.MapActivity;
-//import com.google.android.gms.tasks.OnCompleteListener;
-//import com.google.android.gms.tasks.Task;
 import com.example.proyecto.Map.MapActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
-//import com.google.android.material.textfield.TextInputLayout;
-//import com.google.firebase.auth.AuthResult;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-//import androidx.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtContrasenia;
     MaterialTextView txvRecuperarContrasenia;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         rootReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
+
 
         txvRecuperarContrasenia = findViewById(R.id.textViewSendToResetPassword);
 
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nuevaPagina(View view) {
-        startActivity(new Intent(MainActivity.this, MapActivity.class));
+        startActivity(new Intent(MainActivity.this, HistorialActivity.class));
     }
 
     @Override
@@ -107,11 +111,13 @@ public class MainActivity extends AppCompatActivity {
     public void crearUsuario(View view) {
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
+
     }
 
     public static MainActivity getInstance(){
         return new MainActivity();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -131,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }
