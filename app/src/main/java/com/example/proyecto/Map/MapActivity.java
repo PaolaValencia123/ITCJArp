@@ -45,6 +45,9 @@ public class MapActivity extends AppCompatActivity {
 
     private GeoPoint[] ubicacionContenedores = {
             new GeoPoint(31.721588145085963, -106.42382084373638),
+            new GeoPoint(31.721189, -106.421762),
+            new GeoPoint(31.720550037363633, -106.42375615284041),
+            new GeoPoint(31.72146667454329, -106.42227541306417),
             new GeoPoint(31.721271, -106.423081),
             new GeoPoint(31.72043288365676, -106.42233885112591),
             new GeoPoint(31.72071027657493, -106.42134940358919),
@@ -58,7 +61,10 @@ public class MapActivity extends AppCompatActivity {
 
     private String[] ubicacionesTitle = {
             "Edificio Administrativo: 1",
-            "Edificio Rivera Lara: 1",
+            "Ciencias Básicas: 1",
+            "Biblioteca: 1",
+            "Desarrollo Académico: 1",
+            "Recursos Financieros: 1",
             "División de estudios profesionales: 1",
             "Educación a distancia: 1",
             "Edificio Guillot: 1",
