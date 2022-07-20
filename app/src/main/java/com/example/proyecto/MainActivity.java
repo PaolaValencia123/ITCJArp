@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser userF = mAuth.getCurrentUser();
         if(userF != null)
-            startActivity(new Intent(MainActivity.this, Second.class));
+            startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
     }
 
     public void enviarDatos(View view) {
