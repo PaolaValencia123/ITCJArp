@@ -3,21 +3,13 @@
     <string name="app_name">ARP</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Strings used for fragments for navigation -->
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <!-- Strings used for Login -->
+    <!-- Strings used for Login (Iniciar Sesion) -->
     <string name="title_activity_second">Home</string>
-    <string name="textLogin">Login</string>
+    <string name="textLogin">Iniciar Sesión</string>
     <string name="textUsuario">Usuario</string>
     <string name="textContrasenia">Contraseña</string>
     <string name="txtBienvenido">¡Bienvenido!</string>
     <string name="textOlvidaste">¿Olvidaste la contraseña?</string>
-
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
 
     <!-- Strings used for Registro -->
     <string name="title_activity_registro">Registro</string>
@@ -47,7 +39,7 @@
     <string name="menu_gallery">Mapa</string>
     <string name="menu_slideshow">Reportes</string>
     <string name="menu_mapa">Mapa 2</string>
-    <string name="Status">Estatus:</string>
+    <string name="Status">Estado:</string>
     <string name="last_update">Última actualización:</string>
 
     <string-array name="tipo">
@@ -57,7 +49,7 @@
     </string-array>
 
     <!-- Strings used for Fragment Home -->
-    <string name="titleMapa">Mapa de los contenedores</string>
+    <string name="titleMapa">Ubicación de los contenedores</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_report">ReportActivity</string>
 
@@ -69,20 +61,20 @@
         <item>Administrativo</item>
         <item>Ciencias Básicas</item>
         <item>Biblioteca</item>
-        <item>Desarrollo académico</item>
-        <item>Recursos financieros</item>
+        <item>Desarrollo Académico</item>
+        <item>Recursos Financieros</item>
         <item>Servicios Escolares</item>
-        <item>Educación a distancia</item>
+        <item>Educación a Distancia</item>
         <item>Guillot</item>
-        <item>Gestión y vinculación</item>
+        <item>Gestión y Vinculación</item>
         <item>Departamento de Ing. Industrial</item>
-        <item>Centro de idiomas</item>
+        <item>Centro de Idiomas</item>
         <item>Posgrado</item>
-        <item>Departamento de sistemas</item>
+        <item>Departamento de Ing. Sistemas</item>
     </string-array>
 
     <string-array name="search">
-        <item>Ordernar por</item>
+<!--        <item>Ordernar por</item>-->
 
         <item>Ubicación</item>
 

@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorGreen"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/textRegistrar"
                 android:onClick="enviarDatosRegistro"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorGreen"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="@dimen/marginSuperior"
                 android:layout_marginLeft="@dimen/margenesCajas"

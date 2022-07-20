@@ -99,9 +99,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/textLogin"
+                android:textSize="@dimen/sizeDatos"
                 android:background="@color/colorGreen"
-
-                android:textColor="@color/textoNegro"
+                android:textColor="@color/colorWhite"
                 android:layout_marginTop="@dimen/marginSuperior"
                 android:layout_marginHorizontal="@dimen/margenesCajas"
                 android:onClick="enviarDatos"/>
