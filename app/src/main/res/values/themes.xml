@@ -1,4 +1,6 @@
 <resources>
 
-
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/colorWhite</item>
+    </style>
 </resources>
