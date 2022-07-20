@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Historial.HistorialActivity"
-    android:background="@color/grey"
-    >
+    android:background="@color/grey">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +30,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.174"
             android:contentDescription="@string/Historial">
-
         </ImageView>
 
         <TextView
@@ -57,9 +55,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Ordenar por: "
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintLeft_toLeftOf="@+id/AHSSearch"/>
+            app:layout_constraintLeft_toLeftOf="@+id/AHSSearch"
+            android:text="@string/ordenarPor"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:paddingHorizontal="@dimen/marginGlobalActivity"/>
 
         <Spinner
             android:id="@+id/AHSSearch"

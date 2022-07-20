@@ -6,7 +6,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="android:tintMode">@color/colorWhite</item>
+<!--        Cambiar color de los 3 puntitos-->
+<!--        <item name="android:tintMode">@color/colorWhite</item>-->
     </style>
 
 

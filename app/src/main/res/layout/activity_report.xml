@@ -146,7 +146,7 @@
                 android:layout_marginTop="20dp"
                 android:contentDescription="Upload Photo"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_photo_camera_green"/>
+                android:src="@drawable/ic_photo_camera_blue" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -184,7 +184,7 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp"
                 android:theme="@style/XAppTheme1"
-                app:rippleColor="@color/colorBtnRestablecer" />
+                app:rippleColor="@color/colorOrange" />
         </RelativeLayout>
     </ScrollView>
 

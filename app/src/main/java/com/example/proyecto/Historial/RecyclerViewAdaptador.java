@@ -8,19 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-
 import com.example.proyecto.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.Timestamp;
-
 import java.util.Date;
 import java.util.List;
+
 
 public class RecyclerViewAdaptador extends RecyclerView.Adapter<com.example.proyecto.Historial.RecyclerViewAdaptador.ViewHolder>{
     public List<Historial> historialList;
@@ -50,7 +48,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<com.example.proy
         viewHolder.Status.setText(historialList.get(i).getEstatus());
 
         if(historialList.get(i).getEstatus().equals("En espera")){
-            viewHolder.Status.setTextColor(ContextCompat.getColor(context, R.color.colorBtnRestablecer));
+            viewHolder.Status.setTextColor(ContextCompat.getColor(context, R.color.colorOrange));
         }else if(historialList.get(i).getEstatus().equals("Sin atender")){
             viewHolder.Status.setTextColor(ContextCompat.getColor(context, R.color.colorRed));
         }else if(historialList.get(i).getEstatus().equals("Enviado")){
@@ -60,7 +58,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<com.example.proy
         viewHolder.TipoReporte.setText(historialList.get(i).getTipoReporte());
 
         if(historialList.get(i).getTipoReporte().equals("Contenedor lleno")){
-            viewHolder.TipoReporte.setBackgroundResource(R.color.colorBtnRestablecer);
+            viewHolder.TipoReporte.setBackgroundResource(R.color.colorOrange);
         }else if(historialList.get(i).getTipoReporte().equals("Contenedor dañado")){
             sendButton.setVisibility(View.INVISIBLE);
             viewHolder.TipoReporte.setBackgroundResource(R.color.colorRed);

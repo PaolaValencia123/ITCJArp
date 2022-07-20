@@ -16,6 +16,7 @@
     <string name="textRegistro">Registro de Usuario</string>
     <string name="textNombre">Nombre completo</string>
     <string name="textCorreo">Correo electrónico</string>
+    <string name="usuario">Usuario:</string>
     <string name="textPassword">Contraseña</string>
     <string name="confirmPassword">Confirmar contraseña</string>
     <string name="textRegistrar">Registrar</string>
@@ -53,9 +54,9 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_report">ReportActivity</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Strings used for Activity_Historial -->
     <string name="Historial">Historial</string>
+    <string name="ordenarPor">Ordenar por:</string>
 
     <string-array name="category">
         <item>Administrativo</item>

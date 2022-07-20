@@ -1,6 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="sizeTitulo">50sp</dimen>
+    <dimen name="sizeTitulo">25sp</dimen>
     <dimen name="sizeDatos">20sp</dimen>
     <dimen name="marginSuperior">35dp</dimen>
     <dimen name="sizePregunta">16sp</dimen>
