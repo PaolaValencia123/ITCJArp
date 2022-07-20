@@ -4,6 +4,8 @@ import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,6 +23,7 @@ public class MenuSlideActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class MenuSlideActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_slide);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
+
 
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
         drawer = findViewById(R.id.drawer_layout);
@@ -69,5 +74,16 @@ public class MenuSlideActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            mAuth.signOut();
+            sendToLogin(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
