@@ -25,6 +25,7 @@
 
     <!-- Strings used for Reset Password -->
     <string name="textTitleRP">Restablecer contraseña</string>
+    <string name="textInstructions">Ingrese el correo electrónico que utiliza para iniciar sesión en la aplicación.</string>
     <string name="textEmail">Correo electrónico</string>
     <string name="textResetPassword">Restablecer Contraseña</string>
 
@@ -58,6 +59,25 @@
     <string name="Historial">Historial</string>
     <string name="ordenarPor">Ordenar por:</string>
 
+    <!-- Strings used for Fragment Mapa (Mapa detallado) -->
+    <string name="textUbicacionContenedores">Ubicación de los contenedores</string>
+    <string name="textInicioContenedores">El Instituto Tecnológico de Ciudad Juárez cuenta con múltiples contenedores de color azul, que sirven para el reciclaje de papel bond, y se encuentran ubicados en:</string>
+    <string name="textContenedor1">1.- Administrativo</string>
+    <string name="textContenedor2">2.- Ciencias Básicas</string>
+    <string name="textContenedor3">3.- Biblioteca</string>
+    <string name="textContenedor4">4.- Desarrollo Académico</string>
+    <string name="textContenedor5">5.- Recursos Financieros</string>
+    <string name="textContenedor6">6.- Servicios Escolares</string>
+    <string name="textContenedor7">7.- Educación a Distancia</string>
+    <string name="textContenedor8">8.- Edificio Guillot</string>
+    <string name="textContenedor9">9.- Gestión y Vinculación</string>
+    <string name="textContenedor10">10.- Departamento de Ing. Industrial</string>
+    <string name="textContenedor11">11.- Centro de Idiomas</string>
+    <string name="textContenedor12">12.- División de Estudios de Posgrado e Investigación</string>
+    <string name="textContenedor13">13.- Departamento de Ing. Sistemas Computacionales</string>
+
+
+    <!-- Strings used for Mapa -->
     <string-array name="category">
         <item>Administrativo</item>
         <item>Ciencias Básicas</item>
@@ -76,7 +96,6 @@
 
     <string-array name="search">
 <!--        <item>Ordernar por</item>-->
-
         <item>Ubicación</item>
 
         <item>Contenedor dañado</item>

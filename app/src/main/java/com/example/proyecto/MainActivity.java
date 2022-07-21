@@ -3,6 +3,7 @@ package com.example.proyecto;
 import static com.example.proyecto.Helper.ErrorMessages.getErrorMessage;
 //import static com.example.proyecto.Helper.ErrorMessages.sendToLogin;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     EditText edtContrasenia;
     MaterialTextView txvRecuperarContrasenia;
 
+    //Progress para mostrar que se esta realizando el inicio de sesión
+    private ProgressDialog mDialogInicioSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
 
+        //Instanciar el ProgressDialog
+        mDialogInicioSesion = new ProgressDialog(this);
 
         txvRecuperarContrasenia = findViewById(R.id.textViewSendToResetPassword);
 
@@ -95,7 +100,14 @@ public class MainActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(user, pass)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        // Mensaje de espera al iniciar sesión
+                        mDialogInicioSesion.setMessage("Iniciando Sesión...");
+                        // Establecer en false, para que el usuario no pueda quitarlo
+                        mDialogInicioSesion.setCanceledOnTouchOutside(false);
+                        mDialogInicioSesion.show();
                         startActivity(new Intent(MainActivity.this, MenuSlideActivity.class));
+                        //Cuando la tarea finalice, ocultar el mensaje de progreso
+                        mDialogInicioSesion.dismiss();
                         finish();
                     } else {
                         getErrorMessage(Registro.getInstance(), MainActivity.this,2,((FirebaseAuthException) task.getException()).getErrorCode(), edtCorreoE, edtContrasenia);
@@ -118,13 +130,6 @@ public class MainActivity extends AppCompatActivity {
         return new MainActivity();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

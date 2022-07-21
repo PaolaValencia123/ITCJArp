@@ -8,6 +8,20 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorGreen"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:id="@+id/mapa"
@@ -45,9 +59,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ubicación de los contenedores"
+                android:text="@string/textUbicacionContenedores"
                 android:textStyle="bold"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textAlignment="center"
                 />
@@ -58,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
                 android:textColor="@color/colorWhite"
-                android:text="El instituto tecnológico de ciudad Juárez cuenta con multiplés contenedores ubicados en:">
+                android:text="@string/textInicioContenedores">
             </TextView>
 
 
@@ -67,7 +81,7 @@
                 android:textColor="@color/colorWhite"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="1.- Administrativo">
+                android:text="@string/textContenedor1">
             </TextView>
 
             <TextView
@@ -75,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="2.- Ciencias Básicas">
+                android:text="@string/textContenedor2">
             </TextView>
 
             <TextView
@@ -83,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="3.- Biblioteca">
+                android:text="@string/textContenedor3">
             </TextView>
 
             <TextView
@@ -91,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="4.- Desarrollo Académico">
+                android:text="@string/textContenedor4">
             </TextView>
 
             <TextView
@@ -99,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="5.- Recursos Financieros">
+                android:text="@string/textContenedor5">
             </TextView>
 
             <TextView
@@ -107,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="6.- Servicios Escolares">
+                android:text="@string/textContenedor6">
             </TextView>
 
             <TextView
@@ -115,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="7.- Educación a Distancia">
+                android:text="@string/textContenedor7">
             </TextView>
 
             <TextView
@@ -123,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="8.- Guillot">
+                android:text="@string/textContenedor8">
             </TextView>
 
             <TextView
@@ -131,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="9.- Gestión y Vinculación">
+                android:text="@string/textContenedor9">
             </TextView>
 
             <TextView
@@ -139,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="10.- Departamento de Ing. Industrial">
+                android:text="@string/textContenedor10">
             </TextView>
 
             <TextView
@@ -147,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="11.- Centro de Idiomas">
+                android:text="@string/textContenedor11">
             </TextView>
 
             <TextView
@@ -155,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="12.- Posgrado">
+                android:text="@string/textContenedor12">
             </TextView>
 
             <TextView
@@ -163,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_vertical"
-                android:text="13.- Departamento de Ing. Sistemas">
+                android:text="@string/textContenedor13">
             </TextView>
 
         </LinearLayout>

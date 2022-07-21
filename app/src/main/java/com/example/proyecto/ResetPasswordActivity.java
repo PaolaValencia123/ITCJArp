@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.proyecto.Helper.ErrorMessages;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,6 +27,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     //Progress para mostrar que se esta realizando el envio del correo
     private ProgressDialog mDialog;
+    private ProgressDialog mDialogLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         //Instanciar el ProgressDialog
         mDialog = new ProgressDialog(this);
-        //mDialog2 = new ProgressDialog(this);
+        mDialogLoading = new ProgressDialog(this);
 
         //Instanciar con el Id de cada uno
         mEditTextEmail = findViewById(R.id.editTextEmail);
@@ -76,15 +78,17 @@ public class ResetPasswordActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if(task.isSuccessful()){
-                    Snackbar mySnackbarResetPassword = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Se ha enviado un correo para restablecer tu contraseña. Revisa tu bandeja de entrada o Spam.", Snackbar.LENGTH_LONG);
-                    mySnackbarResetPassword.show();
+                    Toast.makeText(ResetPasswordActivity.this, "Se ha enviado un correo para restablecer tu contraseña.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ResetPasswordActivity.this, "Revisa tu bandeja de entrada o Spam.", Toast.LENGTH_SHORT).show();
+                    //Snackbar mySnackResetPassword = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Se ha enviado un correo para restablecer tu contraseña. Revisa tu bandeja de entrada o Spam.", Snackbar.LENGTH_LONG);
+                    //mySnackResetPassword.show();
                     mEditTextEmail.setText("");
-                    ErrorMessages.sendToLogin(ResetPasswordActivity.this);
+                    //ErrorMessages.sendToLogin(ResetPasswordActivity.this);
                 }
                 else{
-                    //Toast.makeText(ResetPasswordActivity.this, "Error al enviar correo para restablecer contraseña", Toast.LENGTH_SHORT).show();
-                    Snackbar mySnackbarResetPassword = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Error al enviar correo para restablecer contraseña.", Snackbar.LENGTH_SHORT);
-                    mySnackbarResetPassword.show();
+                    Toast.makeText(ResetPasswordActivity.this, "Error al enviar correo para restablecer contraseña", Toast.LENGTH_SHORT).show();
+                    //Snackbar mySnackResetPassword = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Error al enviar correo para restablecer contraseña.", Snackbar.LENGTH_SHORT);
+                    //mySnackResetPassword.show();
                     mEditTextEmail.requestFocus();
                 }
                 //Cuando la tarea finalice, ocultar el mensaje de progreso
